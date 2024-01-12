@@ -1,0 +1,110 @@
+#second{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid white;
+}
+#content-second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 100%;
+}
+#span-second{
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+    text-align: justify;
+    font-size: 21px;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+#div-redes-sociais{
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.a-redes-sociais{
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+    border: 3px solid rgb(206, 249, 255);
+    border-radius: 50%;
+}
+.a-redes-sociais:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.imgs-redes-sociais{
+    width: 35px;
+}
+
+/*----------------------------------*/
+/*----------------------------------*/
+/*----------------------------------*/
+/*----------------------------------*/
+/*----------------------------------*/
+
+/*600*/
+@media screen and (max-width: 600px) {
+    #span-second{
+        font-size: 18px;
+    }
+    .a-redes-sociais{
+        width: 40px;
+        height: 40px;
+    }
+    .imgs-redes-sociais{
+        width: 31px;
+    }
+}
+
+/*470*/
+@media screen and (max-width: 470px) {
+    #span-second{
+        font-size: 15px;
+    }
+    #content-second{
+        width: 85%;
+    }
+    .a-redes-sociais{
+        width: 35px;
+        height: 35px;
+    }
+    .imgs-redes-sociais{
+        width: 25px;
+    }
+}
+
+/*400*/
+@media screen and (max-width: 400px) {
+    #span-second{
+        font-size: 11px;
+    }
+    #content-second{
+        width: 90%;
+    }
+    .a-redes-sociais{
+        width: 28px;
+        height: 28px;
+    }
+    .imgs-redes-sociais{
+        width: 20px;
+    }
+}
