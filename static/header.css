@@ -1,7 +1,8 @@
 header{
-    background-image: url('imgs/testa-ai.gif');
+    background-image: url('imgs/gif-teste-fundo.webp');
+    /* background-image: url('imgs/gif-teste-2.gif'); */
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center 55%;
     background-size: cover;
     position: relative;
     background-color: transparent;
@@ -20,7 +21,7 @@ header{
     justify-content: center;
 }
 .auxiliar-css{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
     align-items: center;
