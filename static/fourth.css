@@ -214,4 +214,8 @@
     .div-projects{
         position: relative;
     }
+    .div-projects:hover .auxiliar-css-projects{
+        transition: 0.8s;
+        background-color: rgb(0, 0, 0, 0.8);
+    }
 }
