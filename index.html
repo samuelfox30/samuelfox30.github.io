@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portfólio - Cibersegurança</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+    }
+    .section {
+      padding: 60px 0;
+    }
+    .navbar {
+      background-color: #161b22;
+    }
+    .btn-custom {
+      background-color: #238636;
+      border: none;
+    }
+    .btn-custom:hover {
+      background-color: #2ea043;
+    }
+
+    /*HEROE*/
+    .hero-section {
+        position: relative;
+        height: 85vh; /* um pouco menor */
+        background: url('img/gif-teste-fundo\ copy.webp') no-repeat center center/cover;
+        padding-top: 60px; /* empurra o conteúdo um pouco pra cima */
+    }
+
+    .hero-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6); /* blackout */
+        z-index: 0;
+    }
+
+    .hero-section .z-1 {
+        z-index: 1;
+    }
+
+    .rounded-circle {
+        object-fit: cover;
+        border: 3px solid #238636;
+    }
+
+    /*parte brilhante sobre-mim*/
+    .glow-box {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3), 
+                0 0 50px rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+    }
+
+    .glow-box:hover {
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.5), 
+                0 0 70px rgba(255, 255, 255, 0.2);
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Samuel - Junior Cybersecurity Analyst</a>
+    </div>
+  </nav>
+
+  <!-- Hero com fundo em GIF e blackout -->
+<section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="container position-relative z-1">
+      <div class="d-flex flex-column align-items-center justify-content-center gap-4 text-center">
+        <img src="img/FotoDePerfil1 copy.jpg" alt="Foto de perfil" class="rounded-circle" width="200" height="200">
+        <div>
+          <h1 class="display-4">Olá, eu sou o Samuel 👋</h1>
+          <p class="lead">Estudante de Cibersegurança e apaixonado por proteger sistemas e dados.</p>
+          <a href="#projetos" class="btn btn-custom mt-3">Ver Projetos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Sobre Mim -->
+<section class="section bg-dark text-light">
+  <div class="container">
+    <h2 class="text-center mb-5">🧠 Sobre Mim</h2>
+    <div class="row align-items-center">
+      
+      <!-- Imagem na FIAP -->
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img src="img/Design sem nome.png" alt="Foto do Samuel na FIAP" class="img-fluid rounded shadow" width="300" height="300">
+      </div>
+
+      <!-- Texto -->
+      <div class="col-md-8">
+        <p class="fs-5">
+          Sou estudante de <strong>Defesa Cibernética</strong> na FIAP e apaixonado por entender, explorar e criar estratégias para defender sistemas. Já estudo e pratico com ferramentas como <strong>Kali Linux</strong>, <strong>Wireshark</strong>, <strong>Nmap</strong> e <strong>Aircrack-ng (e semelhantes)</strong>, além de fundamentos de redes e análise de vulnerabilidades.
+        </p>
+        <div class="row mt-4 justify-content-center text-center">
+          
+          <!-- Card Foco -->
+          <div class="col-sm-5 mb-3">
+            <div class="card bg-secondary text-white border-0 glow-box">
+              <div class="card-body">
+                <h5 class="card-title">🎯 Foco</h5>
+                <p class="card-text">Reconhecimento, Monitoramento e Análise de Logs</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Objetivo -->
+          <div class="col-sm-5 mb-3">
+            <div class="card bg-secondary text-white border-0 glow-box">
+              <div class="card-body">
+                <h5 class="card-title">🚀 Objetivo</h5>
+                <p class="card-text">Conseguir minha primeira oportunidade na área para aprender com prática real</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  
+  
+  
+
+ <!-- Habilidades -->
+<section class="section bg-black text-light">
+    <div class="container">
+      <h2 class="text-center mb-5">💻 Habilidades</h2>
+      <div class="row">
+  
+        <!-- Card Kali Linux -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icon-kali.png" alt="Kali Linux" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">🔒 Linux (Kali e outros)</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Redes (LAN/WAN) -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icon-network.png"Redes LAN/WAN" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">🌐 Planejamento e Configuração de Redes</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Card Assembly -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icone-C.webp" alt="C#" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">🔢 Linguagem C#</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Assembly -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icon-vulnerabilituy.png" alt="Assembly" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">🔢 Linguagem Assembly</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Python -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icon-python.webp" alt="Python" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">🐍 Linguagem Python</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Análise de Vulnerabilidades -->
+        <div class="col-md-3 mb-4">
+          <div class="card text-center border-light shadow-lg bg-dark">
+            <div class="card-body">
+              <img src="img/icone-politica-de-seguranca.png" alt="Análise de Vulnerabilidades" class="img-fluid mb-3" style="max-width: 80px;">
+              <h4 class="card-title text-light">📝 Construção de Políticas e Normas de Segurança</h4>
+              <!-- Botão de Play para vídeo do YouTube -->
+              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
+            </div>
+          </div>
+        </div>
+  
+  
+  
+<!-- Certificações -->
+<section class="section bg-black text-light">
+  <div class="container">
+    <h2 class="text-center mb-5">
+      <i class="fas fa-certificate me-2"></i>Certificações e Cursos
+    </h2>
+    <div class="row justify-content-center">
+      
+      <!-- Certificação 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light border-light shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="fas fa-server me-2 text-warning"></i>
+              Red Hat System Administration I (RH124 - RHA) - Ver. 9.3
+            </h5>
+            <p class="card-text">Curso introdutório de administração Linux com foco no Red Hat Enterprise Linux 9.3, abordando instalação, comandos básicos, rede, usuários, armazenamento e automação com systemd e shell.</p>
+            <p class="card-text"><small class="text-muted">Emitido por Red Hat Academy</small></p>
+            <a href="https://www.credly.com/badges/e154a2c2-3555-4a38-b94e-41f4aad8fd6e" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificação 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light border-light shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <img src="img/icone-C.webp" alt="C#" width="24" height="24" class="me-2">
+              Curso de Programação em C# (Visual Studio)
+            </h5>
+            <p class="card-text">Curso prático de C# com Visual Studio, focado em lógica, criação de sistemas desktop e integração com banco de dados SQL.</p>
+            <p class="card-text"><small class="text-muted">Emitido por Microlins</small></p>
+            <a href="img/certificados/CursoCMicrolins.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificação 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light border-light shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <img src="img/icon-ifes.png" alt="C#" width="24" height="24" class="me-2">
+              Técnico em Informática no Instituto Federal do Espírito Santo (IFES)
+            </h5>
+            <p class="card-text">Curso técnico que capacita profissionais para atuar no desenvolvimento de sistemas, manutenção de computadores, configuração de redes e gerenciamento de bancos de dados, com foco em prática e aplicação real no mercado de TI.</p>
+            <p class="card-text"><small class="text-muted">Emitido por Udemy</small></p>
+            <a href="#" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificação 4 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light border-light shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <img src="img/icon-python.webp" alt="C#" width="24" height="24" class="me-2">
+              Programação Python do Zero ao Avançado
+            </h5>
+            <p class="card-text">Curso completo de Python, do básico ao avançado, com foco em projetos práticos, abordando desde lógica de programação até aplicações em ciência de dados, automação e desenvolvimento web.</p>
+            <p class="card-text"><small class="text-muted">Emitido por Udemy</small></p>
+            <a href="img/certificados/Certificado Curso de python do 0 ao avançado + 32 projetos reais da Udemy.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificação 5 -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 bg-dark text-light border-light shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <img src="img/icone-ingles-removebg-preview.png" alt="C#" width="24" height="24" class="me-2">
+              Curso de Inglês
+            </h5>
+            <p class="card-text">Curso de inglês online com método intuitivo, focado em conversação e compreensão do idioma a partir do português.</p>
+            <p class="card-text"><small class="text-muted">Emitido por Microlins</small></p>
+            <a href="img/certificados/certificado-ingles.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+  
+
+ <!-- Projetos -->
+<section class="section bg-black text-light" id="projetos">
+    <div class="container">
+      <h2 class="text-center mb-5">🛠️ Projetos</h2>
+  
+      <!-- Projeto 1 -->
+      <div class="row align-items-center mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
+        <!-- Imagem -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <img src="img/Ransomwhere-logo.png" alt="Projeto Ransomware" class="img-fluid rounded">
+        </div>
+        <!-- Texto -->
+        <div class="col-md-6">
+          <h3 class="mb-3">🔍 Detector de Ransomware</h3>
+          <p>
+            Sistema que monitora e detecta ransomwares em tempo real. Trabalhei com análise de comportamento e resposta automatizada em grupo.
+          </p>
+          <a href="#" class="btn btn-custom mt-3">Ver mais</a>
+        </div>
+      </div>
+  
+      <!-- Projeto 2 -->
+      <div class="row align-items-center flex-md-row-reverse mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
+        <!-- Imagem -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <img src="#" alt="Rede Segura" class="img-fluid rounded">
+        </div>
+        <!-- Texto -->
+        <div class="col-md-6">
+          <h3 class="mb-3">👁️‍🗨️ NetMon (Monitor de tráfego de rede)</h3>
+          <p>
+            Projeto onde configurei redes seguras usando VLANs, firewall e segmentação de tráfego em simulações no Packet Tracer.
+          </p>
+          <a href="#" class="btn btn-custom mt-3">Ver mais</a>
+        </div>
+      </div>
+
+      <!-- Projeto 3 -->
+      <div class="row align-items-center flex-md-row-reverse mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
+        <!-- Imagem -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <img src="img/img-do-sistema-spa-crud copy.jpg" alt="Rede Segura" class="img-fluid rounded">
+        </div>
+        <!-- Texto -->
+        <div class="col-md-6">
+          <h3 class="mb-3">🧾 Gerenciador de Contatos (SPA com CRUD para guardar contatos)</h3>
+          <p>
+            Projeto onde configurei redes seguras usando VLANs, firewall e segmentação de tráfego em simulações no Packet Tracer.
+          </p>
+          <a href="#" class="btn btn-custom mt-3">Ver mais</a>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+
+
+
+
+<!-- Experiências Profissionais -->
+<section class="section bg-dark text-light">
+  <div class="container">
+    <h2 class="text-center mb-5">
+      <i class="fas fa-briefcase me-2"></i>Experiências Profissionais
+    </h2>
+    <div class="row justify-content-center">
+
+      <!-- Experiência 1 -->
+      <div class="col-md-5 mb-4">
+        <div class="card h-100 bg-secondary text-light border-0 glow-box position-relative">
+          <!-- Logo da empresa -->
+          <img src="img/logo-roca.png" alt="Logo Empresa" width="55" class="position-absolute top-0 end-0 m-3 rounded">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <i class="fas fa-user-clock me-2 text-warning"></i>
+              Menor Aprendiz
+            </h5>
+            <p class="card-text">Atuei como menor aprendiz em um ambiente corporativo, desenvolvendo habilidades de organização, responsabilidade e comunicação. Foi minha primeira experiência profissional, onde aprendi a lidar com rotinas administrativas básicas.</p>
+            <p class="card-text"><small class="text-muted">Período: [2022]</small></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experiência 2 -->
+      <div class="col-md-5 mb-4">
+        <div class="card h-100 bg-secondary text-light border-0 glow-box position-relative">
+          <!-- Logo da empresa -->
+          <img src="img/logo-cx.png" alt="Logo ConversãoX" width="40" class="position-absolute top-0 end-0 m-3 rounded">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              <i class="fas fa-bullhorn me-2 text-info"></i>
+              Estagiário de Tráfego Pago
+            </h5>
+            <p class="card-text">Atualmente estagiando na ConversãoX, gerencio campanhas de Google Ads e Meta Ads, otimizando anúncios, analisando métricas e ajustando estratégias para melhor performance. Experiência prática com performance digital e marketing.</p>
+            <p class="card-text"><small class="text-muted">Desde: jul/2024</small></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  
+  
+
+  <!-- Contato -->
+<section class="section bg-black text-light text-center">
+  <div class="container">
+    <h2 class="mb-4">📬 Contato</h2>
+    <p class="fs-5">Quer bater um papo ou tem uma vaga? Me chama no <strong>LinkedIn</strong>, <strong>WhatsApp</strong> ou manda um <strong>email</strong>.</p>
+
+    <!-- Botões de contato -->
+    <div class="d-flex justify-content-center flex-wrap gap-3 my-4">
+      <a href="mailto:samuelfoxgama@hotmail.com" class="btn btn-outline-light">
+        <i class="fas fa-envelope me-2"></i> Email
+      </a>
+      <a href="https://wa.me/5527992297504" target="_blank" class="btn btn-outline-success">
+        <i class="fab fa-whatsapp me-2"></i> WhatsApp
+      </a>
+      <a href="https://www.linkedin.com/in/samuel-raposo-072ab7266/" target="_blank" class="btn btn-outline-primary">
+        <i class="fab fa-linkedin me-2"></i> LinkedIn
+      </a>
+    </div>
+
+    <!-- Disponibilidade -->
+    <div class="mt-4">
+      <h5 class="text-info">Disponibilidade</h5>
+      <p class="mb-0">📍 Presencial em São Paulo, Remoto ou Híbrido</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- JS do Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
