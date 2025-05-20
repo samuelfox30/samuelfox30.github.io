@@ -66,6 +66,45 @@
     }
 
 
+    /* --------- OUTROS -------*/
+.cv-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #ffffff10;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 30px;
+  display: inline-flex; /* <- Esse aqui é o segredo */
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  max-width: max-content; /* <- Esse evita esticar */
+  white-space: nowrap;
+}
+
+.cv-btn:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.cv-btn i {
+  font-size: 20px;
+}
+
+.cv-text {
+  white-space: nowrap;
+}
+
+
   </style>
 </head>
 <body>
@@ -474,6 +513,21 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+<!-- Botão flutuante fixo com texto visível -->
+<a href="img/certificados/CV_Samuel_maio_2025.pdf" download class="cv-btn" title="Baixe meu currículo">
+  <i class="fas fa-file-alt"></i>
+  <span class="cv-text">Baixe meu currículo aqui!</span>
+</a>
+
+
+
+
+
 
 
   <!-- JS do Bootstrap -->
