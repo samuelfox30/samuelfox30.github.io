@@ -6,6 +6,8 @@
   <title>Meu Portfólio - Cibersegurança</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 
   <style>
     body {
@@ -26,7 +28,7 @@
       background-color: #2ea043;
     }
 
-    /*HEROE*/
+    /*------------------------ HEROE ------------------------*/
     .hero-section {
         position: relative;
         height: 85vh; /* um pouco menor */
@@ -52,6 +54,23 @@
         object-fit: cover;
         border: 3px solid #238636;
     }
+    /*Animação heroe*/
+    .scroll-down-arrow {
+    font-size: 2rem;
+    color: #fff;
+    animation: float 2s infinite;
+    text-decoration: none;
+    }
+
+    @keyframes float {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(8px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.8; }
+    }
+
+
+
+
 
     /*parte brilhante sobre-mim*/
     .glow-box {
@@ -66,7 +85,8 @@
     }
 
 
-    /* --------- OUTROS -------*/
+
+    /* --------- BOTAO CURRICULO -------*/
 .cv-btn {
   position: fixed;
   bottom: 20px;
@@ -116,20 +136,25 @@
     </div>
   </nav>
 
-  <!-- Hero com fundo em GIF e blackout -->
+<!-- Hero com fundo em GIF e blackout -->
 <section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
-    <div class="overlay"></div>
-    <div class="container position-relative z-1">
-      <div class="d-flex flex-column align-items-center justify-content-center gap-4 text-center">
-        <img src="img/FotoDePerfil1 copy.jpg" alt="Foto de perfil" class="rounded-circle" width="200" height="200">
-        <div>
-          <h1 class="display-4">Olá, eu sou o Samuel 👋</h1>
-          <p class="lead">Estudante de Cibersegurança, <b>movido pela curiosidade</b> de entender e resolver os desafios da segurança digital.</p>
-          <a href="#projetos" class="btn btn-custom mt-3">Ver Projetos</a>
-        </div>
+  <div class="overlay"></div>
+  <div class="container position-relative z-1">
+    <div class="d-flex flex-column align-items-center justify-content-center gap-4 text-center">
+      <img src="img/FotoDePerfil1 copy.jpg" alt="Foto de perfil" class="rounded-circle" width="200" height="200">
+      <div>
+        <h1 class="display-4">Olá, eu sou o Samuel 👋</h1>
+        <p class="lead">Estudante de Cibersegurança, <b>movido pela curiosidade</b> de entender e resolver os desafios da segurança digital.</p>
+
+        <!-- Seta animada -->
+        <span href="" class="scroll-down-arrow mt-4">
+          <i class="bi bi-chevron-double-down"></i>
+        </span>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
   
 
 <!-- Apresentação em Vídeo -->
