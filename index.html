@@ -1,564 +1,1711 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Portfólio - Cibersegurança</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Raposo - Cybersecurity Analyst</title>
+    <link rel="icon" href="img/cyber-security.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-color: #00ff41;
+            --secondary-color: #0a0e27;
+            --accent-color: #1a1f3a;
+            --text-color: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --danger-color: #ff0055;
+            --warning-color: #ffaa00;
+        }
 
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-    }
-    .section {
-      padding: 60px 0;
-    }
-    .navbar {
-      background-color: #161b22;
-    }
-    .btn-custom {
-      background-color: #238636;
-      border: none;
-    }
-    .btn-custom:hover {
-      background-color: #2ea043;
-    }
-    strong{
-      color: rgb(184, 255, 255);
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    /*------------------------ HEROE ------------------------*/
-    .hero-section {
-        position: relative;
-        height: 85vh; /* um pouco menor */
-        background: url('img/gif-teste-fundo\ copy.webp') no-repeat center center/cover;
-        padding-top: 60px; /* empurra o conteúdo um pouco pra cima */
-    }
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.1;
+        }
 
-    .hero-section .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6); /* blackout */
-        z-index: 0;
-    }
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, var(--primary-color) 2px, var(--primary-color) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, var(--primary-color) 2px, var(--primary-color) 4px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
 
-    .hero-section .z-1 {
-        z-index: 1;
-    }
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
 
-    .rounded-circle {
-        object-fit: cover;
-        border: 3px solid #238636;
-    }
-    /*Animação heroe*/
-    .scroll-down-arrow {
-    font-size: 2rem;
-    color: #fff;
-    animation: float 2s infinite;
-    text-decoration: none;
-    }
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-color);
+            box-shadow: 0 4px 20px rgba(0, 255, 65, 0.1);
+        }
 
-    @keyframes float {
-    0% { transform: translateY(0); opacity: 0.8; }
-    50% { transform: translateY(8px); opacity: 1; }
-    100% { transform: translateY(0); opacity: 0.8; }
-    }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
 
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
 
-    /*parte brilhante sobre-mim*/
-    .glow-box {
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3), 
-                0 0 50px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.3s ease;
-    }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    .glow-box:hover {
-    box-shadow: 0 0 35px rgba(255, 255, 255, 0.5), 
-                0 0 70px rgba(255, 255, 255, 0.2);
-    }
+        .lang-toggle {
+            background: var(--accent-color);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
 
+        .lang-toggle:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
 
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    /* --------- BOTAO CURRICULO -------*/
-.cv-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  background-color: #ffffff10;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 30px;
-  display: inline-flex; /* <- Esse aqui é o segredo */
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  text-decoration: none;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  transition: all 0.3s ease;
-  font-weight: 500;
-  max-width: max-content; /* <- Esse evita esticar */
-  white-space: nowrap;
-}
+        .section-content {
+            width: 100%;
+        }
 
-.cv-btn:hover {
-  background-color: #fff;
-  color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
-}
+        /* Hero Section */
+        #home {
+            padding-top: 120px;
+        }
 
-.cv-btn i {
-  font-size: 20px;
-}
+        .hero {
+            text-align: center;
+        }
 
-.cv-text {
-  white-space: nowrap;
-}
+        .profile-photo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
 
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 30px var(--primary-color);
+            overflow: hidden;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
 
-  </style>
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px var(--primary-color);
+                border-color: var(--primary-color);
+            }
+            50% { 
+                box-shadow: 0 0 50px var(--primary-color), 0 0 70px var(--primary-color);
+                border-color: var(--warning-color);
+            }
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px var(--primary-color);
+            margin-bottom: 1rem;
+            animation: glitch 3s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 20px var(--primary-color); }
+            50% { text-shadow: 0 0 30px var(--primary-color), 0 0 40px var(--primary-color); }
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Video Presentation Section */
+        #video-presentation {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.8), rgba(22, 33, 62, 0.8));
+            padding: 4rem 2rem;
+        }
+
+        .video-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 10px 40px rgba(0, 255, 65, 0.3);
+            background: var(--accent-color);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 30px var(--primary-color);
+            animation: pulse-play 2s infinite;
+        }
+
+        @keyframes pulse-play {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 30px var(--primary-color);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 0 0 50px var(--primary-color);
+            }
+        }
+
+        .video-placeholder p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .video-placeholder small {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .video-description {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .video-description h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .video-description p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .video-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .video-stat {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--accent-color);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .video-stat:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .video-stat strong {
+            display: block;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .video-stat p {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-item {
+            margin: 1rem 0;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--secondary-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--warning-color));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--accent-color);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-placeholder {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.3);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--warning-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--accent-color);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            background: var(--accent-color);
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            color: var(--text-color);
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px var(--primary-color);
+        }
+
+        /* Video Section */
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            background: var(--accent-color);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 10px 40px rgba(0, 255, 65, 0.2);
+            transition: all 0.3s;
+        }
+
+        .video-wrapper:hover {
+            box-shadow: 0 15px 50px rgba(0, 255, 65, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            /* padding-bottom: 56.25%; */
+            background: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--primary-color);
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: pulse-play 2s infinite;
+            box-shadow: 0 0 30px var(--primary-color);
+        }
+
+        @keyframes pulse-play {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px var(--primary-color);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 50px var(--primary-color);
+            }
+        }
+
+        .video-placeholder p {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-placeholder small {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .video-description {
+            padding: 1rem 0;
+        }
+
+        .video-description h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .video-description p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .video-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--secondary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 25px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+
+        .video-stat:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.4);
+        }
+
+        .stat-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .video-wrapper {
+                padding: 1.5rem;
+            }
+
+            .video-stats {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .video-stat {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .play-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 20px var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .photo-placeholder {
+                font-size: 3rem;
+            }
+
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            .video-description h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 2rem;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--accent-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Samuel - Junior Cybersecurity Analyst</a>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
     </div>
-  </nav>
 
-<!-- Hero com fundo em GIF e blackout -->
-<section class="hero-section text-white text-center d-flex align-items-center justify-content-center">
-  <div class="overlay"></div>
-  <div class="container position-relative z-1">
-    <div class="d-flex flex-column align-items-center justify-content-center gap-4 text-center">
-      <img src="img/foto-perfil3.jpg" alt="Foto de perfil" class="rounded-circle" width="200" height="200">
-      <div>
-        <h1 class="display-4">Olá, eu sou o Samuel Gama👋</h1>
-        <p class="lead">Estudante de Cibersegurança, <b>movido pela curiosidade</b> de entender e resolver os desafios da segurança digital.</p>
+    <!-- Background Animation -->
+    <div class="bg-animation"></div>
 
-        <!-- Seta animada -->
-        <span href="" class="scroll-down-arrow mt-4">
-          <i class="bi bi-chevron-double-down"></i>
-        </span>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">SR_CYBER</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-pt="Início" data-en="Home">Início</a></li>
+                <li><a href="#video-presentation" data-pt="Vídeo" data-en="Video">Vídeo</a></li>
+                <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+                <li><a href="#skills" data-pt="Habilidades" data-en="Skills">Habilidades</a></li>
+                <li><a href="#projects" data-pt="Projetos" data-en="Projects">Projetos</a></li>
+                <li><a href="#experience" data-pt="Experiência" data-en="Experience">Experiência</a></li>
+                <li><a href="#contact" data-pt="Contato" data-en="Contact">Contato</a></li>
+            </ul>
+            <button class="lang-toggle" onclick="toggleLanguage()">EN</button>
+        </nav>
+    </header>
 
-      </div>
-    </div>
-  </div>
-</section>
-  
+    <!-- Home Section -->
+    <section id="home">
+        <div class="section-content hero">
+            <div class="profile-photo-container">
+                <div class="profile-photo">
+                    <img src="img/foto-perfil3.jpg" alt="Samuel Raposo">
+                    <div class="photo-placeholder">SR</div>
+                </div>
+            </div>
+            <h1>SAMUEL RAPOSO</h1>
+            <h2 data-pt="Analista de Cibersegurança Júnior" data-en="Junior Cybersecurity Analyst">Analista de Cibersegurança Júnior</h2>
+            <p class="subtitle" data-pt="Estudante de Defesa Cibernética | Desenvolvedor | Apaixonado por Segurança da Informação" data-en="Cybersecurity Student | Developer | Information Security Enthusiast">
+                Estudante de Defesa Cibernética | Desenvolvedor | Apaixonado por Segurança da Informação
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn" data-pt="Entre em Contato" data-en="Get in Touch">
+                    <span>📧</span> Entre em Contato
+                </a>
+                <a href="#projects" class="btn" data-pt="Ver Projetos" data-en="View Projects">
+                    <span>💻</span> Ver Projetos
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- Apresentação em Vídeo -->
-<section class="section bg-black text-light text-center">
-  <div class="container">
-    <h2 class="mb-4">🎥 Apresentação em Inglês</h2>
-    <p class="fs-5 mb-4">Gravei um vídeo curtinho me apresentando em inglês! Dá o play aí 😄</p>
-    <div class="d-flex justify-content-center">
-      <div class="ratio ratio-16x9" style="max-width: 640px; width: 100%;">
-        <iframe 
-          src="https://www.youtube.com/embed/6TMMvCROpac" 
-          title="Apresentação em Inglês - Samuel" 
-          allowfullscreen
-          class="rounded shadow">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Video Section -->
+    <section id="video-presentation" style="padding: 4rem 2rem;">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Apresentação em Vídeo" data-en="Video Presentation">Apresentação em Vídeo</h2>
+            <div class="video-container fade-in">
+                <div class="video-wrapper">
+                    <div class="video-frame">
+                        <!-- Vídeo local -->
+                        <video width="100%" height="100%" controls>
+                          <source src="img/apresentacao.mp4" type="video/mp4">
+                          Seu navegador não suporta a tag de vídeo.
+                        </video>
+                    </div>
+                    <div class="video-description">
+                        <h3 data-pt="Sobre o Vídeo" data-en="About the Video">Sobre o Vídeo</h3>
+                        <p data-pt="Neste vídeo, me apresento em inglês compartilhando minha trajetória na área de tecnologia, minhas principais habilidades em cibersegurança e desenvolvimento, além dos meus objetivos profissionais." data-en="In this video, I introduce myself in English, sharing my journey in technology, my main skills in cybersecurity and development, as well as my professional goals.">
+                            Neste vídeo, me apresento em inglês compartilhando minha trajetória na área de tecnologia, minhas principais habilidades em cibersegurança e desenvolvimento, além dos meus objetivos profissionais.
+                        </p>
+                        <div class="video-stats">
+                            <div class="video-stat">
+                                <span class="stat-icon">🎯</span>
+                                <span data-pt="Foco em Cybersecurity" data-en="Focus on Cybersecurity">Foco em Cybersecurity</span>
+                            </div>
+                            <div class="video-stat">
+                                <span class="stat-icon">🌐</span>
+                                <span data-en="Presentation in English">Apresentação em Inglês</span>
+                            </div>
+                            <div class="video-stat">
+                                <span class="stat-icon">💼</span>
+                                <span data-pt="Objetivos Profissionais" data-en="Professional Goals">Objetivos Profissionais</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h2>
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h2 data-pt="Quem sou eu?" data-en="Who am I?">Quem sou eu?</h2>
+                    <p data-pt="Estudante de Defesa Cibernética na FIAP, atualmente no 2º semestre, com formação técnica em Informática pelo IFES. Apaixonado por segurança da informação e desenvolvimento de sistemas." data-en="Cybersecurity student at FIAP, currently in the 2nd semester, with a technical degree in Computer Science from IFES. Passionate about information security and system development.">
+                        Estudante de Defesa Cibernética na FIAP, atualmente no 2º semestre, com formação técnica em Informática pelo IFES. Apaixonado por segurança da informação e desenvolvimento de sistemas.
+                    </p>
+                    <p data-pt="Busco minha primeira oportunidade como Analista de Cibersegurança Júnior, com foco em análise de vulnerabilidades, resposta a incidentes e desenvolvimento de ferramentas de segurança." data-en="Looking for my first opportunity as a Junior Cybersecurity Analyst, focusing on vulnerability analysis, incident response, and security tool development.">
+                        Busco minha primeira oportunidade como Analista de Cibersegurança Júnior, com foco em análise de vulnerabilidades, resposta a incidentes e desenvolvimento de ferramentas de segurança.
+                    </p>
+                    <p data-pt="Experiência prática em programação competitiva (robótica), desenvolvimento web, e gestão de tráfego digital. Comprometido com o aprendizado contínuo e a aplicação prática de conhecimentos." data-en="Practical experience in competitive programming (robotics), web development, and digital traffic management. Committed to continuous learning and practical application of knowledge.">
+                        Experiência prática em programação competitiva (robótica), desenvolvimento web, e gestão de tráfego digital. Comprometido com o aprendizado contínuo e a aplicação prática de conhecimentos.
+                    </p>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label" data-pt="Anos de Idade" data-en="Years Old">Anos de Idade</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label" data-pt="Anos de Experiência" data-en="Years Experience">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label" data-pt="Projetos Concluídos" data-en="Projects Completed">Projetos Concluídos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label" data-pt="Certificações" data-en="Certifications">Certificações</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Habilidades Técnicas" data-en="Technical Skills">Habilidades Técnicas</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-category">
+                    <h3 data-pt="Linguagens de Programação" data-en="Programming Languages">Linguagens de Programação</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>C#</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PHP</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="skill-category">
+                    <h3 data-pt="Segurança Cibernética" data-en="Cybersecurity">Segurança Cibernética</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Análise de Vulnerabilidades" data-en="Vulnerability Analysis">Análise de Vulnerabilidades</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Monitoramento de Rede" data-en="Network Monitoring">Monitoramento de Rede</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Resposta a Incidentes" data-en="Incident Response">Resposta a Incidentes</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Análise de Malware" data-en="Malware Analysis">Análise de Malware</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="skill-category">
+                    <h3 data-pt="Sistemas & Infraestrutura" data-en="Systems & Infrastructure">Sistemas & Infraestrutura</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Linux (Debian)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git & GitHub</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Redes" data-en="Networking">Redes</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="skill-category">
+                    <h3 data-pt="Web Development" data-en="Web Development">Web Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Flask</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Design Responsivo" data-en="Responsive Design">Design Responsivo</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-pt="Integrações" data-en="Integrations">Integrações</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Sobre Mim -->
-<section class="section bg-black text-light">
-  <div class="container">
-    <h2 class="text-center mb-5">🧠 Sobre Mim</h2>
-    <div class="row align-items-center">
-      
-      <!-- Imagem na FIAP -->
-      <div class="col-md-4 text-center mb-4 mb-md-0">
-        <img src="img/Design sem nome.png" alt="Foto do Samuel na FIAP" class="img-fluid rounded shadow" width="300" height="300">
-      </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Projetos em Destaque" data-en="Featured Projects">Projetos em Destaque</h2>
+            <div class="projects-grid fade-in">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/ways_hub_img.jpeg" alt="Ways Solution Hub">
+                    </div>
+                    <div class="project-content">
+                        <h3>Ways Solution Hub</h3>
+                        <p data-pt="Projeto para empresa de consultoria financeira para transformar dados em dashboards interativos para empresa e clientes. Sistema em desenvolvimento com foco em visualização de dados e análise financeira." data-en="Project for financial consulting company to transform data into interactive dashboards for company and clients. System in development focused on data visualization and financial analysis.">
+                            Projeto para empresa de consultoria financeira para transformar dados em dashboards interativos para empresa e clientes. Sistema em desenvolvimento com foco em visualização de dados e análise financeira.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag" data-pt="Em Desenvolvimento" data-en="In Development">Em Desenvolvimento</span>
+                        </div>
+                        <a href="https://github.com/samuelfox30/WaysSolutionHub" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.9rem;" data-pt="Ver no GitHub" data-en="View on GitHub">
+                            💻 Ver no GitHub
+                        </a>
+                    </div>
+                </div>
 
-      <!-- Texto -->
-      <div class="col-md-8">
-        <p class="fs-5">
-          Graduando em <strong>Defesa Cibernética</strong> na FIAP, com trajetória prática em <strong>projetos de rede</strong>, automação e segurança. <strong>Atuo com Linux</strong> (Kali e RHEL), análise de tráfego e ferramentas como Nmap, Wireshark e Aircrack-ng, além de <strong>scripts em Python e Bash</strong>. Tenho <strong>experiência em desenvolvimento web</strong> e construção de sistemas aplicados — como o NetMon, <strong>ferramenta própria de monitoramento de rede</strong>. Com <strong>inglês intermediário</strong> e forte senso analítico, busco aplicar minha paixão por cibersegurança em ambientes que valorizem curiosidade, disciplina e entrega.
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Adicione a imagem aqui: <img src="netmon.jpg" alt="NetMon"> -->
+                        <div class="image-placeholder">🔐</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>NetMon</h3>
+                        <p data-pt="Sistema de Gerenciamento de Tráfego de Rede desenvolvido em PHP, HTML, CSS e JavaScript. Ferramenta para monitoramento de dispositivos Windows, desenvolvida como TCC no IFES." data-en="Network Traffic Management System developed in PHP, HTML, CSS and JavaScript. Tool for monitoring Windows devices, developed as a thesis project at IFES.">
+                            Sistema de Gerenciamento de Tráfego de Rede desenvolvido em PHP, HTML, CSS e JavaScript. Ferramenta para monitoramento de dispositivos Windows, desenvolvida como TCC no IFES.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag" data-pt="Segurança" data-en="Security">Segurança</span>
+                            <span class="tag" data-pt="Redes" data-en="Networks">Redes</span>
+                        </div>
+                        <a href="https://github.com/samuelfox30/NETMON" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.9rem;" data-pt="Ver no GitHub" data-en="View on GitHub">
+                            💻 Ver no GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/captura-ransomwhere.png" alt="RansomWare">
+                    </div>
+                    <div class="project-content">
+                        <h3>RansomWhere</h3>
+                        <p data-pt="Projeto educacional focado em análise e compreensão de ransomware. Estudo de comportamentos maliciosos, técnicas de criptografia e desenvolvimento de ferramentas de detecção e prevenção." data-en="Educational project focused on ransomware analysis and understanding. Study of malicious behaviors, encryption techniques and development of detection and prevention tools.">
+                            Projeto educacional focado em análise e compreensão de ransomware. Estudo de comportamentos maliciosos, técnicas de criptografia e desenvolvimento de ferramentas de detecção e prevenção.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag" data-pt="Análise de Malware" data-en="Malware Analysis">Análise de Malware</span>
+                            <span class="tag" data-pt="Segurança" data-en="Security">Segurança</span>
+                            <span class="tag" data-pt="Educacional" data-en="Educational">Educacional</span>
+                        </div>
+                        <a href="https://github.com/samuelfox30/RANSOMWHERE" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.9rem;" data-pt="Ver no GitHub" data-en="View on GitHub">
+                            💻 Ver no GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/img-do-sistema-spa-crud copy.jpg" alt="Sistema SPA CRUD">
+                    </div>
+                    <div class="project-content">
+                        <h3 data-pt="Sistema SPA CRUD" data-en="SPA CRUD System">Sistema SPA CRUD</h3>
+                        <p data-pt="Sistema Web para gerenciamento de contatos usando Single Page Application e operações CRUD, desenvolvido em Python com Flask e banco de dados SQLite." data-en="Web System for contact management using Single Page Application and CRUD operations, developed in Python with Flask and SQLite database.">
+                            Sistema Web para gerenciamento de contatos usando Single Page Application e operações CRUD, desenvolvido em Python com Flask e banco de dados SQLite.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">SPA</span>
+                        </div>
+                        <a href="https://github.com/samuelfox30/System-SPA-CRUD" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.9rem;" data-pt="Ver no GitHub" data-en="View on GitHub">
+                            💻 Ver no GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/lps-profissionais.jpeg" alt="Landing Pages">
+                    </div>
+                    <div class="project-content">
+                        <h3 data-pt="Landing Pages Profissionais" data-en="Professional Landing Pages">Landing Pages Profissionais</h3>
+                        <p data-pt="Desenvolvimento de diversas landing pages para empresas como Ways Solution, Equipe de Robótica SESI e Salão Rebecca Miranda. Foco em conversão e experiência do usuário." data-en="Development of several landing pages for companies such as Ways Solution, SESI Robotics Team and Rebecca Miranda Salon. Focus on conversion and user experience.">
+                            Desenvolvimento de diversas landing pages para empresas como Ways Solution, Equipe de Robótica SESI e Salão Rebecca Miranda. Foco em conversão e experiência do usuário.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag" data-pt="Design" data-en="Design">Design</span>
+                        </div>
+                        <a href="https://github.com/samuelfox30/LPS-CX/" target="_blank" class="btn" style="margin-top: 1rem; font-size: 0.9rem;" data-pt="Ver no GitHub" data-en="View on GitHub">
+                            💻 Ver no GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Experiência Profissional" data-en="Professional Experience">Experiência Profissional</h2>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Estagiário - Setor de RH" data-en="Intern - HR Department">Estagiário - Setor de RH</h3>
+                        <div class="timeline-date" data-pt="Atual - Banco Santander" data-en="Current - Santander Bank">Atual - Banco Santander</div>
+                        <p data-pt="Atuação no setor de Recursos Humanos com foco especial em automação de processos e transformação de dados em dashboards interativos. Desenvolvimento de soluções tecnológicas para otimização de tarefas de RH, criação de relatórios analíticos e implementação de ferramentas de visualização de dados para apoio à tomada de decisões." data-en="Working in Human Resources department with special focus on process automation and transforming data into interactive dashboards. Development of technological solutions for HR task optimization, creation of analytical reports and implementation of data visualization tools to support decision making.">
+                            Atuação no setor de Recursos Humanos com foco especial em automação de processos e transformação de dados em dashboards interativos. Desenvolvimento de soluções tecnológicas para otimização de tarefas de RH, criação de relatórios analíticos e implementação de ferramentas de visualização de dados para apoio à tomada de decisões.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Gerenciador de Tráfego Pago" data-en="Paid Traffic Manager">Gerenciador de Tráfego Pago</h3>
+                        <div class="timeline-date" data-pt="Até 24/10/2025 - Conversaox" data-en="Until 10/24/2025 - Conversaox">Até 24/10/2025 - Conversaox</div>
+                        <p data-pt="Configuração e otimização de anúncios no Google Ads e Meta Ads. Elaboração de relatórios analíticos com foco em métricas de desempenho. Desenvolvimento de landing pages para a empresa e clientes." data-en="Configuration and optimization of ads on Google Ads and Meta Ads. Preparation of analytical reports focused on performance metrics. Development of landing pages for the company and clients.">
+                            Configuração e otimização de anúncios no Google Ads e Meta Ads. Elaboração de relatórios analíticos com foco em métricas de desempenho. Desenvolvimento de landing pages para a empresa e clientes.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Desenvolvedor Web Autônomo" data-en="Freelance Web Developer">Desenvolvedor Web Autônomo</h3>
+                        <div class="timeline-date">2022 - 2025</div>
+                        <p data-pt="Suporte e criação de websites para diversas empresas incluindo Ways Solution, Equipe de Robótica SESI e Salão Rebecca Miranda. Desenvolvimento de sistemas web personalizados e landing pages profissionais." data-en="Support and creation of websites for various companies including Ways Solution, SESI Robotics Team and Rebecca Miranda Salon. Development of custom web systems and professional landing pages.">
+                            Suporte e criação de websites para diversas empresas incluindo Ways Solution, Equipe de Robótica SESI e Salão Rebecca Miranda. Desenvolvimento de sistemas web personalizados e landing pages profissionais.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Visita Técnica - Banco Santander" data-en="Technical Visit - Santander Bank">Visita Técnica - Banco Santander</h3>
+                        <div class="timeline-date" data-pt="Janeiro 2024" data-en="January 2024">Janeiro 2024</div>
+                        <p data-pt="Área de Ciência de Dados. Participação em reuniões técnicas, contato com desenvolvedores e cientistas de dados. Observação de processos de correção de bugs e gerenciamento de servidores." data-en="Data Science Area. Participation in technical meetings, contact with developers and data scientists. Observation of bug fixing processes and server management.">
+                            Área de Ciência de Dados. Participação em reuniões técnicas, contato com desenvolvedores e cientistas de dados. Observação de processos de correção de bugs e gerenciamento de servidores.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Aprendiz Administrativo" data-en="Administrative Apprentice">Aprendiz Administrativo</h3>
+                        <div class="timeline-date" data-pt="Fev 2022 - Jan 2023 | Roca Sanitários Brasil" data-en="Feb 2022 - Jan 2023 | Roca Sanitários Brasil">Fev 2022 - Jan 2023 | Roca Sanitários Brasil</div>
+                        <p data-pt="Análise de Processos, Digitalização de dados operacionais de produção, Atualizações no Programa GP. Reconhecido como Aprendiz Destaque em 2022 pelo Instituto Formar." data-en="Process Analysis, Digitization of production operational data, Updates in GP Program. Recognized as Outstanding Apprentice in 2022 by Instituto Formar.">
+                            Análise de Processos, Digitalização de dados operacionais de produção, Atualizações no Programa GP. Reconhecido como Aprendiz Destaque em 2022 pelo Instituto Formar.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 data-pt="Programador - Equipe de Robótica SESI" data-en="Programmer - SESI Robotics Team">Programador - Equipe de Robótica SESI</h3>
+                        <div class="timeline-date">2019 - 2021</div>
+                        <p data-pt="3 anos desenvolvendo soluções de programação para competições. 1º lugar OBR 2021 nível 2. 3º lugar Estadual 2019. Classificação para etapa nacional." data-en="3 years developing programming solutions for competitions. 1st place OBR 2021 level 2. 3rd place State 2019. Classification for national stage.">
+                            3 anos desenvolvendo soluções de programação para competições. 1º lugar OBR 2021 nível 2. 3º lugar Estadual 2019. Classificação para etapa nacional.
+                        </p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-content">
+            <h2 class="section-title" data-pt="Entre em Contato" data-en="Get in Touch">Entre em Contato</h2>
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>samuelfoxgama@hotmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3 data-pt="Telefone" data-en="Phone">Telefone</h3>
+                            <p>+55 (27) 98845-9985</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3 data-pt="Localização" data-en="Location">Localização</h3>
+                            <p>São Paulo, SP - Brasil</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://linkedin.com/in/samuel-raposo-072ab7266" target="_blank" style="color: var(--primary-color);">samuel-raposo-072ab7266</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/samuelfox30" target="_blank" style="color: var(--primary-color);">samuelfox30</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-pt="Nome" data-en="Name">Nome</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-pt="Mensagem" data-en="Message">Mensagem</label>
+                            <textarea id="message" name="message" required placeholder="Sua mensagem..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-pt="Enviar Mensagem" data-en="Send Message">
+                            <span>📨</span> Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/samuelfox30" target="_blank" title="GitHub">💻</a>
+            <a href="https://linkedin.com/in/samuel-raposo-072ab7266" target="_blank" title="LinkedIn">💼</a>
+            <a href="https://samuelfox30.github.io/" target="_blank" title="Portfolio">🌐</a>
+            <a href="mailto:samuelfoxgama@hotmail.com" title="Email">📧</a>
+        </div>
+        <p data-pt="© 2025 Samuel Raposo. Todos os direitos reservados." data-en="© 2025 Samuel Raposo. All rights reserved.">
+            © 2025 Samuel Raposo. Todos os direitos reservados.
         </p>
-        <div class="row mt-4 justify-content-center text-center">
-          
-          <!-- Card Foco -->
-          <div class="col-sm-5 mb-3">
-            <div class="card bg-secondary text-white border-0 glow-box">
-              <div class="card-body">
-                <h5 class="card-title">🎯 Foco</h5>
-                <p class="card-text">Reconhecimento, Monitoramento e Análise de Logs</p>
-              </div>
-            </div>
-          </div>
+        <p data-pt="Desenvolvido com paixão por tecnologia e segurança" data-en="Developed with passion for technology and security">
+            Desenvolvido com paixão por tecnologia e segurança
+        </p>
+    </footer>
 
-          <!-- Card Objetivo -->
-          <div class="col-sm-5 mb-3">
-            <div class="card bg-secondary text-white border-0 glow-box">
-              <div class="card-body">
-                <h5 class="card-title">🚀 Objetivo</h5>
-                <p class="card-text">Conseguir minha primeira oportunidade na área para aprender com prática real</p>
-              </div>
-            </div>
-          </div>
+    <script>
+        // Language Toggle
+        let currentLang = 'pt';
 
-        </div>
-      </div>
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            const elements = document.querySelectorAll('[data-pt][data-en]');
+            const button = document.querySelector('.lang-toggle');
+            
+            elements.forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = element.getAttribute(`data-${currentLang}`);
+                } else {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
 
-    </div>
-  </div>
-</section>
+            button.textContent = currentLang === 'pt' ? 'EN' : 'PT';
+            document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+        }
 
-  
-  
-  
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
- <!-- Habilidades -->
-<section class="section bg-black text-light">
-    <div class="container">
-      <h2 class="text-center mb-5">💻 Habilidades</h2>
-      <div class="row">
-  
-        <!-- Card Kali Linux -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icon-kali.png" alt="Kali Linux" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">🔒 Linux (Kali e outros)</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
+        // Fade In Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-        <!-- Card Redes (LAN/WAN) -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icon-network.png"Redes LAN/WAN" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">🌐 Configuração e Planejamento de Redes</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Card Assembly -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icone-C.webp" alt="C#" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">🔢 Linguagem C#</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-        <!-- Card Assembly -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icon-vulnerabilituy.png" alt="Assembly" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">🔢 Linguagem Assembly</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
 
-        <!-- Card Python -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icon-python.webp" alt="Python" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">🐍 Linguagem Python</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = currentLang === 'pt' 
+                ? `Contato de ${name}` 
+                : `Contact from ${name}`;
+            const body = `${message}%0D%0A%0D%0A----%0D%0A${email}`;
+            const mailtoLink = `mailto:samuelfoxgama@hotmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert(currentLang === 'pt' 
+                ? 'Abrindo seu cliente de email...' 
+                : 'Opening your email client...');
+        });
 
-        <!-- Card Análise de Vulnerabilidades -->
-        <div class="col-md-3 mb-4">
-          <div class="card text-center border-light shadow-lg bg-dark">
-            <div class="card-body">
-              <img src="img/icone-politica-de-seguranca.png" alt="Análise de Vulnerabilidades" class="img-fluid mb-3" style="max-width: 80px;">
-              <h4 class="card-title text-light">📝 Construção de Políticas e Normas de Segurança</h4>
-              <!-- Botão de Play para vídeo do YouTube -->
-              <a href="https://www.youtube.com/watch?v=EXEMPLO" class="btn btn-light" target="_blank">▶️ Assistir Vídeo</a>
-            </div>
-          </div>
-        </div>
-  
-  
-  
-<!-- Certificações -->
-<section class="section bg-black text-light">
-  <div class="container">
-    <h2 class="text-center mb-5">
-      <i class="fas fa-certificate me-2"></i>Certificações e Cursos
-    </h2>
-    <div class="row justify-content-center">
-      
-      <!-- Certificação 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 bg-dark text-light border-light shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fas fa-server me-2 text-warning"></i>
-              Red Hat System Administration I (RH124 - RHA) - Ver. 9.3
-            </h5>
-            <p class="card-text">Curso introdutório de administração Linux com foco no Red Hat Enterprise Linux 9.3, abordando instalação, comandos básicos, rede, usuários, armazenamento e automação com systemd e shell.</p>
-            <p class="card-text"><small class="text-muted">Emitido por Red Hat Academy</small></p>
-            <a href="https://www.credly.com/badges/e154a2c2-3555-4a38-b94e-41f4aad8fd6e" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
-          </div>
-        </div>
-      </div>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
 
-      <!-- Certificação 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 bg-dark text-light border-light shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <img src="img/icone-C.webp" alt="C#" width="24" height="24" class="me-2">
-              Curso de Programação em C# (Visual Studio)
-            </h5>
-            <p class="card-text">Curso prático de C# com Visual Studio, focado em lógica, criação de sistemas desktop e integração com banco de dados SQL.</p>
-            <p class="card-text"><small class="text-muted">Emitido por Microlins</small></p>
-            <a href="img/certificados/CursoCMicrolins.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
-          </div>
-        </div>
-      </div>
+        // Active Navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-      <!-- Certificação 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 bg-dark text-light border-light shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <img src="img/icon-ifes.png" alt="C#" width="24" height="24" class="me-2">
-              Técnico em Informática no Instituto Federal do Espírito Santo (IFES)
-            </h5>
-            <p class="card-text">Curso técnico que capacita profissionais para atuar no desenvolvimento de sistemas, manutenção de computadores, configuração de redes e gerenciamento de bancos de dados, com foco em prática e aplicação real no mercado de TI.</p>
-            <p class="card-text"><small class="text-muted">Emitido por Udemy</small></p>
-            <a href="img/certificados/Apenas Certificado IFES Curso Técnico em Informática.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
-          </div>
-        </div>
-      </div>
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-      <!-- Certificação 4 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 bg-dark text-light border-light shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <img src="img/icon-python.webp" alt="C#" width="24" height="24" class="me-2">
-              Programação Python do Zero ao Avançado
-            </h5>
-            <p class="card-text">Curso completo de Python, do básico ao avançado, com foco em projetos práticos, abordando desde lógica de programação até aplicações em ciência de dados, automação e desenvolvimento web.</p>
-            <p class="card-text"><small class="text-muted">Emitido por Udemy</small></p>
-            <a href="img/certificados/Certificado Curso de python do 0 ao avançado + 32 projetos reais da Udemy.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
-          </div>
-        </div>
-      </div>
+        // Skill bars animation
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.skill-progress');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
 
-      <!-- Certificação 5 -->
-      <div class="col-md-4 mb-4">
-        <div class="card h-100 bg-dark text-light border-light shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <img src="img/icone-ingles-removebg-preview.png" alt="C#" width="24" height="24" class="me-2">
-              Curso de Inglês
-            </h5>
-            <p class="card-text">Curso de inglês online com método intuitivo, focado em conversação e compreensão do idioma a partir do português.</p>
-            <p class="card-text"><small class="text-muted">Emitido por Microlins</small></p>
-            <a href="img/certificados/certificado-ingles.pdf" target="_blank" class="btn btn-outline-light btn-sm">Ver credencial</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-  
-
- <!-- Projetos -->
-<section class="section bg-black text-light" id="projetos">
-    <div class="container">
-      <h2 class="text-center mb-5">🛠️ Projetos</h2>
-  
-      <!-- Projeto 1 -->
-      <div class="row align-items-center mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
-        <!-- Imagem -->
-        <div class="col-md-6 mb-3 mb-md-0">
-          <img src="img/Ransomwhere-logo.png" alt="Projeto Ransomware" class="img-fluid rounded">
-        </div>
-        <!-- Texto -->
-        <div class="col-md-6">
-          <h3 class="mb-3">🔍 Detector de Ransomware</h3>
-          <p>
-            Sistema que monitora e detecta ransomwares em tempo real. Trabalhei com análise de comportamento e resposta automatizada em grupo.
-          </p>
-          <a href="#" class="btn btn-custom mt-3">Ver git do projeto</a>
-        </div>
-      </div>
-  
-      <!-- Projeto 2 -->
-      <div class="row align-items-center flex-md-row-reverse mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
-        <!-- Imagem -->
-        <div class="col-md-6 mb-3 mb-md-0">
-          <img src="#" alt="Rede Segura" class="img-fluid rounded">
-        </div>
-        <!-- Texto -->
-        <div class="col-md-6">
-          <h3 class="mb-3">👁️‍🗨️ NetMon (Monitor de tráfego de rede)</h3>
-          <p>
-            Projeto onde configurei um sniffer que monitora o tráfego de uma rede pré-definida, e envia para um dashboard web.
-          </p>
-          <a href="https://github.com/samuelfox30/NetMonProject" class="btn btn-custom mt-3">Ver git do projeto</a>
-        </div>
-      </div>
-
-      <!-- Projeto 3 -->
-      <div class="row align-items-center flex-md-row-reverse mb-5 p-4 border rounded shadow-lg" style="border-color: #2f4154;">
-        <!-- Imagem -->
-        <div class="col-md-6 mb-3 mb-md-0">
-          <img src="img/img-do-sistema-spa-crud copy.jpg" alt="" class="img-fluid rounded">
-        </div>
-        <!-- Texto -->
-        <div class="col-md-6">
-          <h3 class="mb-3">🧾 Gerenciador de Contatos (SPA com CRUD para guardar contatos)</h3>
-          <p>
-            Projeto onde configurei redes seguras usando VLANs, firewall e segmentação de tráfego em simulações no Packet Tracer.
-          </p>
-          <a href="https://github.com/samuelfox30/System-SPA-CRUD" class="btn btn-custom mt-3">Ver git do projeto</a>
-        </div>
-      </div>
-  
-    </div>
-  </section>
-
-
-
-
-<!-- Experiências Profissionais -->
-<section class="section bg-dark text-light">
-  <div class="container">
-    <h2 class="text-center mb-5">
-      <i class="fas fa-briefcase me-2"></i>Experiências Profissionais
-    </h2>
-    <div class="row justify-content-center">
-
-      <!-- Experiência 1 -->
-      <div class="col-md-5 mb-4">
-        <div class="card h-100 bg-secondary text-light border-0 glow-box position-relative">
-          <!-- Logo da empresa -->
-          <img src="img/logo-roca.png" alt="Logo Empresa" width="55" class="position-absolute top-0 end-0 m-3 rounded">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <i class="fas fa-user-clock me-2 text-warning"></i>
-              Menor Aprendiz
-            </h5>
-            <p class="card-text">Atuei como menor aprendiz em um ambiente corporativo, desenvolvendo habilidades de organização, responsabilidade e comunicação. Foi minha primeira experiência profissional, onde aprendi a lidar com rotinas administrativas básicas.</p>
-            <p class="card-text"><small class="text-muted">Período: [2022]</small></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experiência 2 -->
-      <div class="col-md-5 mb-4">
-        <div class="card h-100 bg-secondary text-light border-0 glow-box position-relative">
-          <!-- Logo da empresa -->
-          <img src="img/logo-cx.png" alt="Logo ConversãoX" width="40" class="position-absolute top-0 end-0 m-3 rounded">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              <i class="fas fa-bullhorn me-2 text-info"></i>
-              Estagiário de Tráfego Pago e Desenvolvimento de Landing Pages
-            </h5>
-            <p class="card-text">Atualmente estagiando na ConversãoX, desenvolvendo Landing Pages para a empresa, gerenciando campanhas de Google Ads e Meta Ads, otimizando anúncios, analisando métricas e ajustando estratégias para melhor performance. Experiência prática com performance digital e marketing.</p>
-            <p class="card-text"><small class="text-muted">Desde: jul/2024</small></p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-  
-  
-
-  <!-- Contato -->
-<section class="section bg-black text-light text-center">
-  <div class="container">
-    <h2 class="mb-4">📬 Contato</h2>
-    <p class="fs-5">Quer bater um papo ou tem uma vaga? Me chama no <strong>LinkedIn</strong>, <strong>WhatsApp</strong> ou manda um <strong>email</strong>.</p>
-
-    <!-- Botões de contato -->
-    <div class="d-flex justify-content-center flex-wrap gap-3 my-4">
-      <a href="mailto:samuelfoxgama@hotmail.com" class="btn btn-outline-light">
-        <i class="fas fa-envelope me-2"></i> Email
-      </a>
-      <a href="https://wa.me/5527988459985" target="_blank" class="btn btn-outline-success">
-        <i class="fab fa-whatsapp me-2"></i> WhatsApp
-      </a>
-      <a href="https://www.linkedin.com/in/samuel-raposo-072ab7266/" target="_blank" class="btn btn-outline-primary">
-        <i class="fab fa-linkedin me-2"></i> LinkedIn
-      </a>
-    </div>
-
-    <!-- Disponibilidade -->
-    <div class="mt-4">
-      <h5 class="text-info">Disponibilidade</h5>
-      <p class="mb-0">📍 Presencial em São Paulo, Remoto ou Híbrido</p>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<!-- Botão flutuante fixo com texto visível -->
-<a href="img/CV_Dev_Samuel_RG_fev2025 (1).pdf" download class="cv-btn" title="Baixe meu currículo">
-  <i class="fas fa-file-alt"></i>
-  <span class="cv-text">Baixe meu currículo aqui!</span>
-</a>
-
-
-
-
-
-
-
-  <!-- JS do Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+        document.querySelectorAll('.skill-category').forEach(category => {
+            skillObserver.observe(category);
+        });
+    </script>
 </body>
 </html>
